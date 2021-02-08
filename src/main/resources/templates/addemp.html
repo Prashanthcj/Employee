@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
+<html lang="en" xml:lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
 <meta charset="ISO-8859-1">
 <title>Add employees</title>
@@ -10,7 +10,7 @@
 <br>
 <hr>
 <form th:action="@{/addemp}" th:object="${employee}" method="post">
-<p>Employee id : <input type="number" name="emp_id"/> </p>
+<p>Employee id : <input type="number" name="empid"/> </p>
 <p>age : <input type="number" name="age"/> </p>
 <p>forename : <input type="text" name="forename"/> </p>
 <p>surname : <input type="text" name="surname"/> </p>

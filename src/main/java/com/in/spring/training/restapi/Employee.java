@@ -3,7 +3,7 @@ package com.in.spring.training.restapi;
 
 public class Employee {
 	
-	public Long emp_id;
+	private Long empid;
 	private int age;
 	private String forename;
 	private String surname;
@@ -13,19 +13,19 @@ public class Employee {
 	
 	public Employee(Long i,int age, String forename, String surname, String postcode) {
 		super();
-		this.emp_id = i;
+		this.empid = i;
 		this.age = age;
 		this.forename = forename;
 		this.surname = surname;
 		this.postcode = postcode;
 	}
 	
-	public Long getEmp_id() {
-		return emp_id;
+	public Long getEmpid() {
+		return empid;
 	}
 
-	public void setEmp_id(Long emp_id) {
-		this.emp_id = emp_id;
+	public void setEmpid(Long empid) {
+		this.empid = empid;
 	}
 
 	public int getAge() {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xml:lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title> Get all employees</title>
@@ -12,24 +12,26 @@
  <h1>Employees List</h1>
  
   <table border="1" class = "table table-striped table-responsive-md">
+  
+  <caption>Employee table</caption>
    <thead>
     <tr>
-     <th>Empployee ID</th>
-     <th>Age</th>
-     <th>Forename</th>
-     <th>Surname</th>
-     <th>Postcode</th>
-	<th>Action</th>
+     <th id="id">Empployee ID</th>
+     <th id="age">Age</th>
+     <th id="fname">Forename</th>
+     <th id="sname">Surname</th>
+     <th id="pcode">Postcode</th>
+	<th id="action">Action</th>
    </thead>
    <tbody>
     <tr th:each="employee : ${listEmployees}">
-    <td th:text="${employee.emp_id}"></td>
+    <td th:text="${employee.empid}"></td>
     <td th:text="${employee.age}"></td>
      <td th:text="${employee.forename}"></td>
      <td th:text="${employee.surname}"></td>
      <td th:text="${employee.postcode}"></td>
-     <td><a th:href="@{/showFormForUpdate/{id}(id=${employee.emp_id})}" class="btn btn-primary">Update</a>
-      <a th:href="@{/deleteEmployee/{id}(id=${employee.emp_id})}" class="btn btn-danger">Delete</a></td>
+     <td><a th:href="@{/showFormForUpdate/{id}(id=${employee.empid})}" class="btn btn-primary">Update</a>
+      <a th:href="@{/deleteEmployee/{id}(id=${employee.empid})}" class="btn btn-danger">Delete</a></td>
     </tr>
    </tbody>
   </table>

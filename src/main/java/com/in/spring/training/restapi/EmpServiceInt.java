@@ -2,7 +2,7 @@ package com.in.spring.training.restapi;
 
 import java.util.List;
 
-public interface Emp_Service_Int {
+public interface EmpServiceInt {
 	
 	 List<Emp> getAllEmployees();
 	 void saveEmployee(Emp emp);
