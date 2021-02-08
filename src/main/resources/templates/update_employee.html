@@ -18,7 +18,7 @@
         <form action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="POST">
 
             <!-- Add hidden form field to handle update -->
-            <input type="hidden" th:field="*{emp_id}" >
+            <input type="hidden" th:field="*{empid}" >
 
             <input type="number" th:field="*{age}" >
             

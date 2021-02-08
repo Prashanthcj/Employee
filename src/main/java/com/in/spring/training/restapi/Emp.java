@@ -1,27 +1,27 @@
 package com.in.spring.training.restapi;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
+
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
+
 
 @Entity
 public class Emp {
 
 	@Id
-	public Long emp_id;
+	public Long empid;
 	private int age;
 	private String forename;
 	private String surname;
 	private String postcode;
 	public Emp() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
-	public Emp(Long emp_id,int age, String forename, String surname, String postcode) {
+	public Emp(Long empid,int age, String forename, String surname, String postcode) {
 		super();
-		this.emp_id = emp_id;
+		this.empid = empid;
 		this.age = age;
 		this.forename = forename;
 		this.surname = surname;
@@ -29,11 +29,11 @@ public class Emp {
 	}
 	
 	
-	public Long getEmp_id() {
-		return emp_id;
+	public Long getEmpid() {
+		return empid;
 	}
-	public void setEmp_id(Long emp_id) {
-		this.emp_id = emp_id;
+	public void setEmpid(Long empid) {
+		this.empid = empid;
 	}
 	public int getAge() {
 		return age;

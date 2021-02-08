@@ -7,25 +7,25 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public  class Service_Imp implements Emp_Service_Int {
+public  class ServiceImp implements EmpServiceInt {
 	
 	 @Autowired
-	    private Employee_Repository employee_repo;
+	    private Employeerepository employeerepo;
 
 	    @Override
 	    public List<Emp> getAllEmployees() {
-	        return employee_repo.findAll();
+	        return employeerepo.findAll();
 	    }
 	    
 	    @Override
 	    public void saveEmployee(Emp emp)
 	    {
-	    	this.employee_repo.save(emp);
+	    	this.employeerepo.save(emp);
 	    }
 	    
 	    @Override
 	    public Emp getEmployeeById(long id) {
-	        java.util.Optional<Emp> optional = employee_repo.findById(id);
+	        java.util.Optional<Emp> optional = employeerepo.findById(id);
 	        Emp employee = null;
 	        if (optional.isPresent()) {
 	            employee = optional.get();
@@ -38,7 +38,7 @@ public  class Service_Imp implements Emp_Service_Int {
 
 	    @Override
 	    public void deleteEmployeeById(long id) {
-	        this.employee_repo.deleteById(id);
+	        this.employeerepo.deleteById(id);
 	    }
 	    
 

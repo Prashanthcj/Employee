@@ -2,8 +2,8 @@ package com.in.spring.training.restapi;
 
 
 
-import java.util.List;
-import java.util.Optional;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+
+
 
 @Controller
-public class Emp_Controller {
+public class Empcontroller {
 	
 	@Autowired
-	private Employee_Repository employee_repo;
+	private Employeerepository employeerepo;
 
 	
 	 @Autowired
-	    private Emp_Service_Int employeeService;
+	    private EmpServiceInt employeeService;
 
 	    // display list of employees
 	    @GetMapping("/")
@@ -31,11 +31,7 @@ public class Emp_Controller {
 	        model.addAttribute("listEmployees", employeeService.getAllEmployees());
 	        return "index";
 	    }
-//		@GetMapping("/")
-//		public String home(){
-//			return"index";
-//			
-//		}
+
 	    
 	    
 	    @GetMapping("/addemp")
@@ -56,52 +52,14 @@ public class Emp_Controller {
 	
 	    
 	    @PostMapping("/saveEmployee")
-	    public String saveEmployee(@ModelAttribute("employee") Emp emp) {
+	    public String saveEmployee(@ModelAttribute("employee") @PathVariable Emp emp) {
 	        // save employee to database
 	        employeeService.saveEmployee(emp);
 	        return "redirect:/";
 	    }
 
 	    
-	    
-//	    @GetMapping()
-//	    public String getAllEmployees(Model model)
-//	    {
-//	    	model.addAttribute("employee_repo",employee_repo.values());
-//	    	return"allemp";
-//	    }
-	    
-//	    @GetMapping("/emp/{id}")
-//	    public Optional<Emp> getEmpBYId(@PathVariable Long id) {
-//	    	return employee_repo.findById(id);
-//	    }
-//	    
-//	    @GetMapping("/allemp")
-//	    public List<Emp> getAllEmp()
-//	    {
-//	    	return employee_repo.findAll();
-//	    }
-//	    
-//	    @PutMapping("/edit/{id}")
-//	    public Optional<Emp> updateEmp(Employee employee,@PathVariable Long id)
-//	    {
-//	    	Emp em = null;
-//	    	Optional<Emp> e = employee_repo.findById(id);
-//	    	if(e.isPresent())
-//	    	{
-//	    		em = e.get();
-//	    		em.setAge(employee.getAge());
-//	    		em.setForename(employee.getForename());
-//	    		em.setSurname(employee.getSurname());
-//	    		em.setPostcode(employee.getPostcode());
-//	    		employee_repo.save(em);
-//	    		
-//	    	}
-//	    	else {
-//	    		return Optional.ofNullable(new Emp());
-//	    	}
-//	    	return Optional.ofNullable(em);
-//	    }
+
 	    
 	    @PostMapping("/addemp")
 	    public String submitEmp(Employee employee)
@@ -109,9 +67,11 @@ public class Emp_Controller {
 	    	Emp emp =null;
 	    	if(null != employee)
 	    	{
-	    		emp = new Emp(employee.getEmp_id(),employee.getAge(),employee.getForename(),employee.getSurname(),employee.getPostcode());
+	    		emp = new Emp(employee.getEmpid(),employee.getAge(),employee.getForename(),employee.getSurname(),employee.getPostcode());
 	    	}
-	    	employee_repo.save(emp);
+	    	
+	    	
+	    	employeerepo.save(emp);
 	    	return"emp-added";
 	    }
 	    

@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xml:lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>All Employees</title>
 </head>
 <body>
-<div align="center">
+<div style="text-align:center;">
 <br>
 <table border="1">
+<caption>Employees table</caption>
 <tr>
-<td>Id</td>
-<td>Age</td>
-<td>Forename</td>
-<td>Surname</td>
-<td>Postcode</td>
+ <th id="id">Empployee ID</th>
+     <th id="age">Age</th>
+     <th id="fname">Forename</th>
+     <th id="sname">Surname</th>
+     <th id="pcode">Postcode</th>
+	<th id="action">Action</th>
 </tr>
-<tr th:each="emp : ${Emp}">
+<tr th:each="emp : ${Emp}">                                 
 <td th:text="${emp.id"></td>
 <td th:text="${emp.age"></td>
 <td th:text="${emp.forename"></td>
